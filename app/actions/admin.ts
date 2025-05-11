@@ -63,7 +63,6 @@ export async function createNewStaff(data: any) {
         status: "ACTIVE",
       },
     });
-
     return {
       success: true,
       message: "Doctor added successfully",
@@ -97,7 +96,7 @@ export async function createNewDoctor(data: any) {
       emailAddress: [validatedValues.email],
       password: validatedValues.password,
       firstName: validatedValues.name.split(" ")[0],
-      lastName: validatedValues.name.split(" ")[1],
+      lastName: validatedValues.name.split(" ").slice(1).join(" "),
       publicMetadata: { role: "doctor" },
     });
 

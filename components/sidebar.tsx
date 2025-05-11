@@ -171,7 +171,7 @@ export const Sidebar = async () => {
             href={"/"}
             className="hidden lg:flex text-base 2xl:text-xl font-bold"
           >
-            Kinda HMS
+            GUB-HCS
           </Link>
         </div>
 
@@ -188,7 +188,7 @@ export const Sidebar = async () => {
                     <Link
                       href={link.href}
                       className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-blue-600/10"
-                      key={link.name}
+                      key={`${link.name}-${link.href}`}
                     >
                       <SidebarIcon icon={link.icon} />
                       <span className="hidden lg:block">{link.name}</span>

@@ -14,54 +14,16 @@ import { format } from "date-fns";
 import { ReceiptText } from "lucide-react";
 
 const columns = [
-  {
-    header: "RNO",
-    key: "id",
-  },
-  {
-    header: "Patient",
-    key: "info",
-    className: "",
-  },
-  {
-    header: "Contact",
-    key: "phone",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Bill Date",
-    key: "bill_date",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Total",
-    key: "total",
-    className: "hidden xl:table-cell",
-  },
-  {
-    header: "Discount",
-    key: "discount",
-    className: "hidden xl:table-cell",
-  },
-  {
-    header: "Payable",
-    key: "payable",
-    className: "hidden xl:table-cell",
-  },
-  {
-    header: "Paid",
-    key: "payable",
-    className: "hidden xl:table-cell",
-  },
-  {
-    header: "Status",
-    key: "status",
-    className: "hidden xl:table-cell",
-  },
-  {
-    header: "Actions",
-    key: "action",
-  },
+  { header: "RNO", key: "id" },
+  { header: "Patient", key: "info", className: "" },
+  { header: "Contact", key: "phone", className: "hidden md:table-cell" },
+  { header: "Bill Date", key: "bill_date", className: "hidden md:table-cell" },
+  { header: "Total", key: "total", className: "hidden xl:table-cell" },
+  { header: "Discount", key: "discount", className: "hidden xl:table-cell" },
+  { header: "Payable-1", key: "payable-1", className: "hidden xl:table-cell" },
+  { header: "Paid", key: "paid", className: "hidden xl:table-cell" },
+  { header: "Status", key: "status", className: "hidden xl:table-cell" },
+  { header: "Actions", key: "action" },
 ];
 
 interface ExtendedProps extends Payment {

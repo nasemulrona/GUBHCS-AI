@@ -17,6 +17,14 @@ export async function getDoctorDashboardStats() {
   try {
     const { userId } = await auth();
 
+    if (!userId) {
+      return {
+        success: false,
+        message: "Unauthorized access",
+        status: 401,
+      };
+    }
+
     const todayDate = new Date().getDay();
     const today = daysOfWeek[todayDate];
 
@@ -25,7 +33,7 @@ export async function getDoctorDashboardStats() {
         db.patient.count(),
         db.staff.count({ where: { role: "NURSE" } }),
         db.appointment.findMany({
-          where: { doctor_id: userId!, appointment_date: { lte: new Date() } },
+          where: { doctor_id: userId, appointment_date: { lte: new Date() } },
           include: {
             patient: {
               select: {
@@ -73,9 +81,9 @@ export async function getDoctorDashboardStats() {
     );
 
     const last5Records = appointments.slice(0, 5);
-    // const availableDoctors = doctors.slice(0, 5);
 
     return {
+      success: true,
       totalNurses,
       totalPatient,
       appointmentCounts,
